@@ -1,9 +1,17 @@
 import 'dart:ui';
 
+import 'package:flame/components/text_component.dart';
 import 'package:flame/game.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 
-class TiledGame extends BaseGame {
+class TiledGame extends BaseGame  {
+
+  @override
+  void render(Canvas canvas){
+    super.render(canvas);
+    TextComponent(this.fps().toString()).render(canvas);
+  }
+  
   TiledGame() {
     final TiledComponent tiledMap =
         TiledComponent('image_src_map.tmx', Size(32.0, 32.0));
